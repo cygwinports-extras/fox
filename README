@@ -8,12 +8,12 @@ manipulation.  FOX also implements icons, images, and user-convenience
 features such as status line help, and tooltips.
 
 Runtime requirements:
-  cygwin-1.5.19-4
-  libGL1-6.4.2-1
-  libGLU1-6.4.2-1
-  libXcursor1-1.1.5.2-1
-  libXft2-2.1.8.2-1
-  libXrandr2-1.1.0.2-1
+  cygwin-1.5.20-1
+  libGL1-6.5-1
+  libGLU1-6.5-1
+  libXcursor1-1.1.7-1
+  libXft2-2.1.10-1
+  libXrandr2-1.1.1-1
   libbz2_1-1.0.3-1
   libjpeg62-6b-11
   libpng12-1.2.8-2
@@ -21,18 +21,18 @@ Runtime requirements:
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.19-4
-  autoconf2.5-2.59-3
+  cygwin-1.5.20-1
+  autoconf2.5-2.59-2
   automake1.4-1.4p6-1
   binutils-20050610-1
-  cygport-0.1.92-1
+  cygport-0.2.2-1
   gawk-3.1.5-2
   gcc-core-3.4.4-1
   gcc-g++-3.4.4-1
   libtool1.5-1.5.22-1
   make-3.80-1
   reswrap-1.6.4-1
-  sed-4.1.4-1
+  sed-4.1.5-1
 
 Canonical homepage:
   http://www.fox-toolkit.org/
@@ -40,17 +40,17 @@ Canonical homepage:
 -------------------------------------------
 
 Build instructions:
-  unpack fox16-1.6.4-X-src.tar.bz2
+  unpack fox16-1.6.6-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./fox16-1.6.4-X.cygport all
+  cygport ./fox16-1.6.6-X.cygport all
 
 This will create:
-  /usr/src/fox16-1.6.4-X-src.tar.bz2
-  /usr/src/fox16-1.6.4-X.tar.bz2
-  /usr/src/fox16-devel-1.6.4-X.tar.bz2
-  /usr/src/fox16-doc-1.6.4-X.tar.bz2
+  /usr/src/fox16-1.6.6-X-src.tar.bz2
+  /usr/src/fox16-1.6.6-X.tar.bz2
+  /usr/src/fox16-devel-1.6.6-X.tar.bz2
+  /usr/src/fox16-doc-1.6.6-X.tar.bz2
 
 -------------------------------------------
 
@@ -58,14 +58,14 @@ Files included in the main package:
 
   /usr/bin/cygCHART-1.6-0.dll
   /usr/bin/cygFOX-1.6-0.dll
-  /usr/share/doc/Cygwin/fox16-1.6.4.README
-  /usr/share/doc/fox16-1.6.4/ADDITIONS
-  /usr/share/doc/fox16-1.6.4/AUTHORS
-  /usr/share/doc/fox16-1.6.4/INSTALL
-  /usr/share/doc/fox16-1.6.4/LICENSE
-  /usr/share/doc/fox16-1.6.4/LICENSE_ADDENDUM
-  /usr/share/doc/fox16-1.6.4/README
-  /usr/share/doc/fox16-1.6.4/TRACING
+  /usr/share/doc/Cygwin/fox16-1.6.6.README
+  /usr/share/doc/fox16-1.6.6/ADDITIONS
+  /usr/share/doc/fox16-1.6.6/AUTHORS
+  /usr/share/doc/fox16-1.6.6/INSTALL
+  /usr/share/doc/fox16-1.6.6/LICENSE
+  /usr/share/doc/fox16-1.6.6/LICENSE_ADDENDUM
+  /usr/share/doc/fox16-1.6.6/README
+  /usr/share/doc/fox16-1.6.6/TRACING
 
 Files included in the devel package:
 
@@ -360,6 +360,7 @@ Files included in the devel package:
   /usr/lib/libCHART-1.6.la
   /usr/lib/libFOX-1.6.dll.a
   /usr/lib/libFOX-1.6.la
+  /usr/lib/pkgconfig/fox-1.6.pc
 
 Files included in the doc package:
 
@@ -507,6 +508,9 @@ Files included in the doc package:
 ------------------
 
 Port Notes:
+
+----- version 1.6.6-1 -----
+Version bump.
 
 ----- version 1.6.4-1 -----
 Version bump.
