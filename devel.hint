@@ -1,5 +1,5 @@
 category: X11
-requires: cygwin libXcursor libXft libXrandr mesa bzip2 jpeg libpng12-devel libtiff-devel
+requires: cygwin libX11-devel libXcursor libXft libXrandr mesa-devel libbz2-devel libjpeg-devel libpng12-devel libtiff-devel
 external-source: fox16
 sdesc: "FOX GUI Toolkit development (1.6 branch)"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
