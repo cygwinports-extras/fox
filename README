@@ -9,8 +9,8 @@ features such as status line help, and tooltips.
 
 Runtime requirements:
   cygwin-1.5.24-2
-  libGL1-6.5.1-1
-  libGLU1-6.5.1-1
+  libGL1-6.5.3-1
+  libGLU1-6.5.3-1
   libX11_6-1.1.1-1
   libXcursor1-1.1.8-1
   libXft2-2.1.12-1
@@ -41,17 +41,17 @@ Canonical homepage:
 -------------------------------------------
 
 Build instructions:
-  unpack fox16-1.6.25-X-src.tar.bz2
+  unpack fox16-1.6.28-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./fox16-1.6.25-X.cygport all
+  cygport ./fox16-1.6.28-X.cygport all
 
 This will create:
-  /usr/src/fox16-1.6.25-X-src.tar.bz2
-  /usr/src/fox16-1.6.25-X.tar.bz2
-  /usr/src/fox16-devel-1.6.25-X.tar.bz2
-  /usr/src/fox16-doc-1.6.25-X.tar.bz2
+  /usr/src/fox16-1.6.28-X-src.tar.bz2
+  /usr/src/fox16-1.6.28-X.tar.bz2
+  /usr/src/fox16-devel-1.6.28-X.tar.bz2
+  /usr/src/fox16-doc-1.6.28-X.tar.bz2
 
 -------------------------------------------
 
@@ -59,14 +59,14 @@ Files included in the main package:
 
   /usr/bin/cygCHART-1.6-0.dll
   /usr/bin/cygFOX-1.6-0.dll
-  /usr/share/doc/Cygwin/fox16-1.6.25.README
-  /usr/share/doc/fox16-1.6.25/ADDITIONS
-  /usr/share/doc/fox16-1.6.25/AUTHORS
-  /usr/share/doc/fox16-1.6.25/INSTALL
-  /usr/share/doc/fox16-1.6.25/LICENSE
-  /usr/share/doc/fox16-1.6.25/LICENSE_ADDENDUM
-  /usr/share/doc/fox16-1.6.25/README
-  /usr/share/doc/fox16-1.6.25/TRACING
+  /usr/share/doc/Cygwin/fox16-1.6.28.README
+  /usr/share/doc/fox16-1.6.28/ADDITIONS
+  /usr/share/doc/fox16-1.6.28/AUTHORS
+  /usr/share/doc/fox16-1.6.28/INSTALL
+  /usr/share/doc/fox16-1.6.28/LICENSE
+  /usr/share/doc/fox16-1.6.28/LICENSE_ADDENDUM
+  /usr/share/doc/fox16-1.6.28/README
+  /usr/share/doc/fox16-1.6.28/TRACING
 
 Files included in the devel package:
 
@@ -417,6 +417,9 @@ Files included in the doc package:
 ------------------
 
 Port Notes:
+
+----- version 1.6.28-1 -----
+Version bump.
 
 ----- version 1.6.25-1 -----
 Version bump.
