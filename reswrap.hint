@@ -1,7 +1,7 @@
-category: X11
-requires: cygwin fox-config fox16 libX11-devel libXcursor libXft libXrandr mesa-devel libbz2-devel libjpeg-devel libpng12-devel libtiff-devel
+category: Devel
+requires: cygwin
 external-source: fox16
-sdesc: "FOX GUI Toolkit development (1.6 branch)"
+sdesc: "FOX GUI Toolkit resource compiler"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
 Interfaces easily and effectively.  It offers a wide, and growing, 
 collection of Controls, and provides state of the art facilities such 
