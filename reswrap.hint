@@ -1,6 +1,6 @@
 category: Devel
 requires: cygwin
-external-source: fox16
+external-source: fox
 sdesc: "FOX GUI Toolkit resource compiler"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
 Interfaces easily and effectively.  It offers a wide, and growing, 

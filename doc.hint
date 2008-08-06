@@ -1,5 +1,5 @@
 category: Doc X11
-external-source: fox16
+external-source: fox
 sdesc: "FOX GUI Toolkit API documentation (1.6 branch)"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
 Interfaces easily and effectively.  It offers a wide, and growing, 

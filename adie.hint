@@ -1,6 +1,6 @@
 category: Editors X11
 requires: cygwin fox16
-external-source: fox16
+external-source: fox
 sdesc: "Text editor based on the FOX GUI Toolkit"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
 Interfaces easily and effectively.  It offers a wide, and growing, 
