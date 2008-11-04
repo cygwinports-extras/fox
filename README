@@ -8,28 +8,32 @@ manipulation.  FOX also implements icons, images, and user-convenience
 features such as status line help, and tooltips.
 
 Runtime requirements:
-  cygwin-1.5.25-11
-  libGL1-7.0.3-1
-  libGLU1-7.0.3-1
-  libX11_6-1.1.3-1
-  libXcursor1-1.1.9-1
-  libXft2-2.1.12-1
-  libXrandr2-1.2.2-1
-  libbz2_1-1.0.3-2
+  cygwin-1.5.25-15
+  libbz2_1-1.0.5-2
+  libfontconfig1-2.6.0-1
+  libfreetype26-2.3.7-1
+  libGL1-7.2-2
+  libGLU1-7.2-2
   libjpeg62-6b-12
-  libpng12-1.2.26-1
+  libpng12-1.2.32-1
   libtiff5-3.8.2-3
+  libX11_6-1.1.5-1
+  libXcursor1-1.1.9-2
+  libXext6-1.0.4-1
+  libXft2-2.1.13-1
+  libXrandr2-1.2.3-1
+  zlib-1.2.3-2
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.61-1
+  autoconf2.5-2.63-1
   automake1.4-1.4p6-3
-  binutils-20060817-1
-  cygport-0.3.10-1
+  binutils-20080624-2
+  cygport-0.4.2-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
-  libtool-2.2.2-2
+  libtool-2.2.6a-1
   make-3.81-1
   sed-4.1.5-2
 
@@ -46,26 +50,49 @@ Build instructions:
   cygport ./fox16-1.6.33-X.cygport all
 
 This will create:
-  /usr/src/adie-1.6.33-X.tar.bz2
-  /usr/src/calculator-1.6.33-X.tar.bz2
-  /usr/src/fox16-1.6.33-X-src.tar.bz2
-  /usr/src/fox16-1.6.33-X.tar.bz2
-  /usr/src/fox16-devel-1.6.33-X.tar.bz2
-  /usr/src/fox16-doc-1.6.33-X.tar.bz2
-  /usr/src/pathfinder-1.6.33-X.tar.bz2
+  /usr/src/fox-1.6.33-X-src.tar.bz2
+  /usr/src/fox-1.6.33-X.tar.bz2
+  /usr/src/libFOX1.6-devel-1.6.33-X.tar.bz2
+  /usr/src/libFOX1.6-doc-1.6.33-X.tar.bz2
+  /usr/src/libFOX1.6_0-1.6.33-X.tar.bz2
   /usr/src/reswrap-1.6.33-X.tar.bz2
-  /usr/src/shutterbug-1.6.33-X.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary packages:
 
-(fox16)
+(fox)
+  /usr/bin/Adie.stx
+  /usr/bin/PathFinder.exe
+  /usr/bin/adie.exe
+  /usr/bin/calculator.exe
+  /usr/bin/shutterbug.exe
+  /usr/share/applications/PathFinder.desktop
+  /usr/share/applications/adie.desktop
+  /usr/share/applications/calculator.desktop
+  /usr/share/applications/shutterbug.desktop
+  /usr/share/doc/fox-1.6.33/ADDITIONS
+  /usr/share/doc/fox-1.6.33/AUTHORS
+  /usr/share/doc/fox-1.6.33/INSTALL
+  /usr/share/doc/fox-1.6.33/LICENSE
+  /usr/share/doc/fox-1.6.33/LICENSE_ADDENDUM
+  /usr/share/doc/fox-1.6.33/README
+  /usr/share/doc/fox-1.6.33/TRACING
+  /usr/share/man/man1/PathFinder.1.gz
+  /usr/share/man/man1/adie.1.gz
+  /usr/share/man/man1/calculator.1.gz
+  /usr/share/man/man1/shutterbug.1.gz
+  /usr/share/pixmaps/PathFinder.gif
+  /usr/share/pixmaps/adie.gif
+  /usr/share/pixmaps/calculator.gif
+  /usr/share/pixmaps/shutterbug.gif
+
+(libFOX1.6_0)
   /usr/bin/cygCHART-1.6-0.dll
   /usr/bin/cygFOX-1.6-0.dll
 
-(fox16-devel)
-  /usr/bin/fox-1.6-config
+(libFOX1.6-devel)
+  /usr/bin/fox-config-1.6
   /usr/include/fox-1.6/FX4Splitter.h
   /usr/include/fox-1.6/FX7Segment.h
   /usr/include/fox-1.6/FX885910Codec.h
@@ -352,13 +379,15 @@ Files included in the binary packages:
   /usr/include/fox-1.6/fxunicode.h
   /usr/include/fox-1.6/fxver.h
   /usr/include/fox-1.6/xincs.h
+  /usr/lib/libCHART-1.6.a
   /usr/lib/libCHART-1.6.dll.a
   /usr/lib/libCHART-1.6.la
+  /usr/lib/libFOX-1.6.a
   /usr/lib/libFOX-1.6.dll.a
   /usr/lib/libFOX-1.6.la
   /usr/lib/pkgconfig/fox-1.6.pc
 
-(fox16-doc)
+(libFOX1.6-doc)
   /usr/share/doc/fox-1.6/html/adie.html
   /usr/share/doc/fox-1.6/html/app.html
   /usr/share/doc/fox-1.6/html/art/*
@@ -408,38 +437,17 @@ Files included in the binary packages:
   /usr/share/doc/fox-1.6/html/window.html
   /usr/share/doc/fox-1.6/html/xml.html
 
-(adie)
-  /usr/bin/Adie.stx
-  /usr/bin/adie.exe
-  /usr/share/applications/adie.desktop
-  /usr/share/man/man1/adie.1.gz
-  /usr/share/pixmaps/adie.gif
-
-(calculator)
-  /usr/bin/calculator.exe
-  /usr/share/applications/calculator.desktop
-  /usr/share/man/man1/calculator.1.gz
-  /usr/share/pixmaps/calculator.gif
-
-(pathfinder)
-  /usr/bin/PathFinder.exe
-  /usr/share/applications/PathFinder.desktop
-  /usr/share/man/man1/PathFinder.1.gz
-  /usr/share/pixmaps/PathFinder.gif
-
 (reswrap)
   /usr/bin/reswrap.exe
   /usr/share/man/man1/reswrap.1.gz
 
-(shutterbug)
-  /usr/bin/shutterbug.exe
-  /usr/share/applications/shutterbug.desktop
-  /usr/share/man/man1/shutterbug.1.gz
-  /usr/share/pixmaps/shutterbug.gif
-
 ------------------
 
 Port Notes:
+
+----- version 1.6.33-1 -----
+Version bump.
+Reorganized packages.
 
 ----- version 1.6.33-1 -----
 Version bump.

@@ -1,0 +1,78 @@
+HOMEPAGE="http://www.fox-toolkit.org/"
+SRC_URI="http://www.fox-toolkit.org/ftp/fox-${PV}.tar.gz"
+PATCH_URI="1.6-no-undefined.patch
+           1.6-doxygen-vpath.patch
+           1.6-x11.patch"
+
+SRC_DIR="fox-${PV}"
+
+slot=${PV[1]}.${PV[2]}
+
+DOCS="ADDITIONS LICENSE_ADDENDUM TRACING"
+FOX_APPS="adie calculator pathfinder shutterbug"
+
+DESCRIPTION="FOX C++ GUI Toolkit (${slot} branch)"
+PKG_NAMES="${PN} libFOX${slot}_0 libFOX${slot}-devel libFOX${slot}-doc reswrap"
+fox_CONTENTS="--exclude=reswrap* usr/bin/Adie.stx usr/bin/*.exe
+              usr/share/doc/Cygwin/ usr/share/doc/${P}/
+              usr/share/applications/ usr/share/man/ usr/share/pixmaps/"
+libFOX1_6_0_CONTENTS="usr/bin/*-${slot}-0.dll"
+libFOX1_6_devel_CONTENTS="usr/bin/fox-config-${slot} usr/include/ usr/lib/"
+libFOX1_6_doc_CONTENTS="usr/share/doc/fox-${slot}/"
+reswrap_CONTENTS="usr/bin/reswrap* usr/share/man/man1/reswrap.*"
+
+src_compile() {
+	cd ${S}
+	WANT_AUTOCONF=2.5
+	WANT_AUTOMAKE=1.4
+	cygautoreconf
+
+	cd ${B}
+
+	cygconf \
+		--enable-bz2lib \
+		--enable-jpeg \
+		--enable-png \
+		--enable-release \
+		--enable-threads \
+		--enable-tiff \
+		--enable-zlib \
+		--with-opengl \
+		--with-shape \
+		--with-xcursor \
+		--with-xft \
+		--with-xrandr \
+		--with-xshm \
+		"${@}"
+
+	cygmake
+	cygmake -C doc docs
+}
+
+src_install() {
+	cd ${B}
+	cyginstall \
+		htmldir=/usr/share/doc/fox-${slot}/html \
+		artdir=/usr/share/doc/fox-${slot}/html/art \
+		screenshotsdir=/usr/share/doc/fox-${slot}/html/screenshots
+
+	if [ -d ${B}/doc/ref ]
+	then
+		cp -Rp ${B}/doc/ref ${D}/usr/share/doc/fox-${slot}/html
+	fi
+
+	mv ${D}/usr/bin/fox-config{,-${slot}}
+	mv ${D}/usr/lib/pkgconfig/fox{,-${slot}}.pc
+
+	newicon ${S}/adie/big_gif.gif adie.gif
+	make_desktop_entry adie "Adie Text Editor" adie.gif "TextEditor"
+
+	newicon ${S}/calculator/bigcalc.gif calculator.gif
+	make_desktop_entry calculator "FOX Calculator" calculator.gif "Science;Calculator"
+
+	newicon ${S}/pathfinder/iconpath.gif PathFinder.gif
+	make_desktop_entry PathFinder "PathFinder" PathFinder.gif "FileManager"
+
+	doicon ${S}/shutterbug/shutterbug.gif
+    make_desktop_entry shutterbug "ShutterBug" shutterbug.gif "Graphics"
+}

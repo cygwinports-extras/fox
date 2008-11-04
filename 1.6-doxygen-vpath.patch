@@ -1,85 +1,5 @@
---- origsrc/fox-1.6.33/Makefile.am	2006-08-03 19:15:33.000000000 -0500
-+++ src/fox-1.6.33/Makefile.am	2008-05-02 09:49:03.718750000 -0500
-@@ -10,10 +10,13 @@
- bin_SCRIPTS = fox-config
- 
- pkgconfigdir = $(libdir)/pkgconfig
--pkgconfig_DATA = fox.pc
-+pkgconfig_DATA = fox-$(FOX_MAJOR_VERSION).$(FOX_MINOR_VERSION).pc
- 
- CLEANFILES = fox.tar.gz
- 
-+fox-$(FOX_MAJOR_VERSION).$(FOX_MINOR_VERSION).pc: fox.pc
-+	cp -f $< $@
-+
- snapshot: dist-all
- 	cp $(distdir).tar.gz /net/linky/mnt/ftp/pub/fox-snapshot.tar.gz
- 	cp $(distdir).zip /net/linky/mnt/ftp/pub/fox-snapshot.zip
---- origsrc/fox-1.6.33/chart/Makefile.am	2008-04-03 21:56:50.000000000 -0500
-+++ src/fox-1.6.33/chart/Makefile.am	2008-05-02 09:49:03.750000000 -0500
-@@ -8,10 +8,11 @@
- 
- lib_LTLIBRARIES = libCHART-1.6.la
- 
--libCHART_1_6_la_LIBADD  = $(X_LIBS) $(X_BASE_LIBS) $(X_EXTRA_LIBS)
-+libCHART_1_6_la_LIBADD  = ../src/libFOX-1.6.la $(X_LIBS) $(X_BASE_LIBS) $(X_EXTRA_LIBS)
- 
- libCHART_1_6_la_LDFLAGS = \
-         -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)    \
-+	-no-undefined \
- 	-export-dynamic
- 
- chartincludedir=$(includedir)/fox-1.6/chart
 --- origsrc/fox-1.6.33/configure.in	2008-04-29 14:07:53.000000000 -0500
 +++ src/fox-1.6.33/configure.in	2008-05-02 09:49:03.781250000 -0500
-@@ -89,19 +89,15 @@
- dnl Check to see if they specified MingW32 location
- AC_ARG_WITH(mingw32,[  --with-mingw32[=DIR]    MingW32 installation location])
- 
--dnl Checks for the Cygwin environment. If present, sets shell variable
--dnl CYGWIN to 'yes'; if not present, sets CYGWIN to the empty string.
--AC_CYGWIN()
--
- dnl Clear out the X11 flags for the case where we're cross-compiling
- dnl for i586-mingw32 targets under Unix.
--if test "x$CYGWIN" = "xyes" -o "x$MINGW32" = "xyes" ; then
-+if test "x$MINGW32" = "xyes" ; then
- X_CFLAGS=""
- X_LIBS=""
- fi
- 
- dnl Byte order
--if test "x$CYGWIN" = "xyes" -o "x$MINGW32" = "xyes" ; then
-+if test "x$MINGW32" = "xyes" ; then
- dnl For Win32 X86 => little endian.
- FOX_BYTEORDER=0
- AC_SUBST(FOX_BYTEORDER)
-@@ -116,7 +112,7 @@
- fi
- 
- 
--if test "x$CYGWIN" = "xyes" -o "x$MINGW32" = "xyes" ; then
-+if test "x$MINGW32" = "xyes" ; then
- AC_DEFINE(WIN32)
- LIBS="${LIBS} -lcomctl32 -lwsock32 -lwinspool -lmpr -lgdi32"
- LDFLAGS="${LDFLAGS} -mwindows -e _mainCRTStartup"
-@@ -382,14 +378,14 @@
- AC_ARG_WITH(opengl,[  --with-opengl           choices are yes, no])
- AC_MSG_RESULT([$with_opengl])
- if test "x$with_opengl" != "xno" ; then
--if test "x$CYGWIN" = "xyes" -o "x$MINGW32" = "xyes" ; then
-+if test "x$MINGW32" = "xyes" ; then
- AC_CHECK_HEADER(GL/glu.h,CXXFLAGS="${CXXFLAGS} -DHAVE_GLU_H=1"; LIBS="${LIBS} ${LIBGLU:=-lglu32}")
- AC_CHECK_HEADER(GL/gl.h,CXXFLAGS="${CXXFLAGS} -DHAVE_GL_H=1"; LIBS="${LIBS} ${LIBGL:=-lopengl32}")
- GL_TESTS="gltest.exe glviewer.exe"
- else
- AC_CHECK_HEADER(GL/glu.h,CXXFLAGS="${CXXFLAGS} -DHAVE_GLU_H=1"; LIBS="${LIBS} ${LIBGLU:=-lGLU}")
- AC_CHECK_HEADER(GL/gl.h,CXXFLAGS="${CXXFLAGS} -DHAVE_GL_H=1"; LIBS="${LIBS} ${LIBGL:=-lGL}")
--GL_TESTS="gltest glviewer"
-+GL_TESTS="gltest\$(EXEEXT) glviewer\$(EXEEXT)"
- fi
- fi
- 
 @@ -409,6 +405,7 @@
  src/version.rc
  chart/Makefile
@@ -249,7 +169,7 @@
 +
 +CLASS_DIAGRAMS         = YES
 +HIDE_UNDOC_RELATIONS   = YES
-+HAVE_DOT               = NO
++HAVE_DOT               = YES
 +CLASS_GRAPH            = YES
 +COLLABORATION_GRAPH    = YES
 +UML_LOOK               = NO
@@ -293,13 +213,3 @@
 +EXTRA_DIST = $(html_DATA) Doxyfile.in
  
  
---- origsrc/fox-1.6.33/src/Makefile.am	2008-04-03 21:57:01.000000000 -0500
-+++ src/fox-1.6.33/src/Makefile.am	2008-05-02 09:49:03.843750000 -0500
-@@ -11,6 +11,7 @@
- 
- libFOX_1_6_la_LDFLAGS = \
-         -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)    \
-+	-no-undefined \
- 	-export-dynamic
- 
- CURSORS = \

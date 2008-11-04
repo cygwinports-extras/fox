@@ -1,6 +1,6 @@
-category: X11
-requires: adie calculator pathfinder reswrap shutterbug
-sdesc: "FOX GUI Toolkit runtime libraries (meta-package)"
+category: Editors Graphics Math X11
+requires: cygwin libFOX1.6_0
+sdesc: "FOX GUI Toolkit (apps)"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User
 Interfaces easily and effectively.  It offers a wide, and growing,
 collection of Controls, and provides state of the art facilities such

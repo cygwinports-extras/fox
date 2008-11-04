@@ -1,7 +1,6 @@
-category: Math X11
-requires: cygwin fox16
+category: Doc X11
 external-source: fox
-sdesc: "Calculator based on the FOX GUI Toolkit"
+sdesc: "FOX GUI Toolkit (1.6 documentation)"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
 Interfaces easily and effectively.  It offers a wide, and growing, 
 collection of Controls, and provides state of the art facilities such 
