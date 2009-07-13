@@ -64,7 +64,9 @@ src_install() {
 	fi
 
 	mv ${D}/usr/bin/fox-config{,-${slot}}
+	dosym fox-config-${slot} /usr/bin/fox-config
 	mv ${D}/usr/lib/pkgconfig/fox{,-${slot}}.pc
+	dosym fox-${slot}.pc /usr/lib/pkgconfig/fox.pc
 
 	newicon ${S}/adie/big_gif.gif adie.gif
 	make_desktop_entry adie "Adie Text Editor" adie.gif "TextEditor"
