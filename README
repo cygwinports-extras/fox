@@ -8,33 +8,35 @@ manipulation.  FOX also implements icons, images, and user-convenience
 features such as status line help, and tooltips.
 
 Runtime requirements:
-  cygwin-1.5.25-15
-  libbz2_1-1.0.5-2
-  libfontconfig1-2.6.0-1
-  libfreetype26-2.3.7-1
-  libGL1-7.2-2
-  libGLU1-7.2-2
-  libjpeg62-6b-12
-  libpng12-1.2.32-1
-  libtiff5-3.8.2-3
-  libX11_6-1.1.5-1
-  libXcursor1-1.1.9-2
-  libXext6-1.0.4-1
-  libXft2-2.1.13-1
-  libXrandr2-1.2.3-1
-  zlib-1.2.3-2
+  cygwin-1.7.0-50
+  libbz2_1-1.0.5-10
+  libfontconfig1-2.6.0-10
+  libfreetype6-2.3.9-1
+  libgcc1-4.3.2-2
+  libGL1-7.2-10
+  libGLU1-7.2-10
+  libjpeg62-6b-20
+  libpng12-1.2.35-10
+  libstdc++6-4.3.2-2
+  libtiff5-3.8.2-10
+  libX11_6-1.2-10
+  libXcursor1-1.1.9-10
+  libXext6-1.0.5-10
+  libXft2-2.1.13-10
+  libXrandr2-1.3.0-10
+  zlib0-1.2.3-10
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-1
-  automake1.4-1.4p6-3
-  binutils-20080624-2
-  cygport-0.4.2-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  gcc-g++-3.4.4-3
-  libtool-2.2.6a-1
-  make-3.81-1
+  autoconf2.5-2.63-10
+  automake1.4-1.4p6-10
+  binutils-2.19.51-1
+  cygport-0.9.7-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  libtool-2.2.7a-13
+  make-3.81-2
   sed-4.1.5-2
 
 Canonical homepage:
@@ -43,19 +45,18 @@ Canonical homepage:
 -------------------------------------------
 
 Build instructions:
-  unpack fox16-1.6.33-X-src.tar.bz2
+  unpack fox16-1.6.36-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./fox16-1.6.33-X.cygport all
+  cygport ./fox16-1.6.36-X.cygport all
 
 This will create:
-  /usr/src/fox-1.6.33-X-src.tar.bz2
-  /usr/src/fox-1.6.33-X.tar.bz2
-  /usr/src/libFOX1.6-devel-1.6.33-X.tar.bz2
-  /usr/src/libFOX1.6-doc-1.6.33-X.tar.bz2
-  /usr/src/libFOX1.6_0-1.6.33-X.tar.bz2
-  /usr/src/reswrap-1.6.33-X.tar.bz2
+  /usr/src/fox-1.6.36-X-src.tar.bz2
+  /usr/src/fox-1.6.36-X.tar.bz2
+  /usr/src/libFOX1.6-devel-1.6.36-X.tar.bz2
+  /usr/src/libFOX1.6-doc-1.6.36-X.tar.bz2
+  /usr/src/libFOX1.6_0-1.6.36-X.tar.bz2
 
 -------------------------------------------
 
@@ -71,13 +72,12 @@ Files included in the binary packages:
   /usr/share/applications/adie.desktop
   /usr/share/applications/calculator.desktop
   /usr/share/applications/shutterbug.desktop
-  /usr/share/doc/fox-1.6.33/ADDITIONS
-  /usr/share/doc/fox-1.6.33/AUTHORS
-  /usr/share/doc/fox-1.6.33/INSTALL
-  /usr/share/doc/fox-1.6.33/LICENSE
-  /usr/share/doc/fox-1.6.33/LICENSE_ADDENDUM
-  /usr/share/doc/fox-1.6.33/README
-  /usr/share/doc/fox-1.6.33/TRACING
+  /usr/share/doc/fox/ADDITIONS
+  /usr/share/doc/fox/AUTHORS
+  /usr/share/doc/fox/LICENSE
+  /usr/share/doc/fox/LICENSE_ADDENDUM
+  /usr/share/doc/fox/README
+  /usr/share/doc/fox/TRACING
   /usr/share/man/man1/PathFinder.1.gz
   /usr/share/man/man1/adie.1.gz
   /usr/share/man/man1/calculator.1.gz
@@ -93,6 +93,7 @@ Files included in the binary packages:
 
 (libFOX1.6-devel)
   /usr/bin/fox-config-1.6
+  /usr/bin/reswrap.exe
   /usr/include/fox-1.6/FX4Splitter.h
   /usr/include/fox-1.6/FX7Segment.h
   /usr/include/fox-1.6/FX885910Codec.h
@@ -386,109 +387,64 @@ Files included in the binary packages:
   /usr/lib/libFOX-1.6.dll.a
   /usr/lib/libFOX-1.6.la
   /usr/lib/pkgconfig/fox-1.6.pc
+  /usr/share/man/man1/reswrap.1.gz
 
 (libFOX1.6-doc)
-  /usr/share/doc/fox-1.6/html/adie.html
-  /usr/share/doc/fox-1.6/html/app.html
-  /usr/share/doc/fox-1.6/html/art/*
-  /usr/share/doc/fox-1.6/html/calc.html
-  /usr/share/doc/fox-1.6/html/clipboard.html
-  /usr/share/doc/fox-1.6/html/consulting.html
-  /usr/share/doc/fox-1.6/html/datatarget.html
-  /usr/share/doc/fox-1.6/html/doc.html
-  /usr/share/doc/fox-1.6/html/download.html
-  /usr/share/doc/fox-1.6/html/draganddrop.html
-  /usr/share/doc/fox-1.6/html/faq.html
-  /usr/share/doc/fox-1.6/html/filefuncs.html
-  /usr/share/doc/fox-1.6/html/filter.pl
-  /usr/share/doc/fox-1.6/html/focus.html
-  /usr/share/doc/fox-1.6/html/fonts.html
-  /usr/share/doc/fox-1.6/html/footer.html
-  /usr/share/doc/fox-1.6/html/foreword.html
-  /usr/share/doc/fox-1.6/html/fox.html
-  /usr/share/doc/fox-1.6/html/goals.html
-  /usr/share/doc/fox-1.6/html/gpgkey.html
-  /usr/share/doc/fox-1.6/html/guiupdate.html
-  /usr/share/doc/fox-1.6/html/header.html
-  /usr/share/doc/fox-1.6/html/home.html
-  /usr/share/doc/fox-1.6/html/icons.html
-  /usr/share/doc/fox-1.6/html/install.html
-  /usr/share/doc/fox-1.6/html/introduction.html
-  /usr/share/doc/fox-1.6/html/layout.html
-  /usr/share/doc/fox-1.6/html/license.html
-  /usr/share/doc/fox-1.6/html/menu.css
-  /usr/share/doc/fox-1.6/html/menu.html
-  /usr/share/doc/fox-1.6/html/messages.html
-  /usr/share/doc/fox-1.6/html/news.html
-  /usr/share/doc/fox-1.6/html/news1.html
-  /usr/share/doc/fox-1.6/html/news2.html
-  /usr/share/doc/fox-1.6/html/news3.html
-  /usr/share/doc/fox-1.6/html/page.css
-  /usr/share/doc/fox-1.6/html/pathfinder.html
-  /usr/share/doc/fox-1.6/html/projects.html
-  /usr/share/doc/fox-1.6/html/ref/*
-  /usr/share/doc/fox-1.6/html/screenshots/*
-  /usr/share/doc/fox-1.6/html/serialization.html
-  /usr/share/doc/fox-1.6/html/styles.css
-  /usr/share/doc/fox-1.6/html/timers.html
-  /usr/share/doc/fox-1.6/html/top.html
-  /usr/share/doc/fox-1.6/html/widgets.html
-  /usr/share/doc/fox-1.6/html/win32.html
-  /usr/share/doc/fox-1.6/html/window.html
-  /usr/share/doc/fox-1.6/html/xml.html
-
-(reswrap)
-  /usr/bin/reswrap.exe
-  /usr/share/man/man1/reswrap.1.gz
+  /usr/share/doc/fox/html/adie.html
+  /usr/share/doc/fox/html/app.html
+  /usr/share/doc/fox/html/art/*
+  /usr/share/doc/fox/html/calc.html
+  /usr/share/doc/fox/html/clipboard.html
+  /usr/share/doc/fox/html/consulting.html
+  /usr/share/doc/fox/html/datatarget.html
+  /usr/share/doc/fox/html/doc.html
+  /usr/share/doc/fox/html/download.html
+  /usr/share/doc/fox/html/draganddrop.html
+  /usr/share/doc/fox/html/faq.html
+  /usr/share/doc/fox/html/filefuncs.html
+  /usr/share/doc/fox/html/filter.pl
+  /usr/share/doc/fox/html/focus.html
+  /usr/share/doc/fox/html/fonts.html
+  /usr/share/doc/fox/html/footer.html
+  /usr/share/doc/fox/html/foreword.html
+  /usr/share/doc/fox/html/fox.html
+  /usr/share/doc/fox/html/goals.html
+  /usr/share/doc/fox/html/gpgkey.html
+  /usr/share/doc/fox/html/guiupdate.html
+  /usr/share/doc/fox/html/header.html
+  /usr/share/doc/fox/html/home.html
+  /usr/share/doc/fox/html/icons.html
+  /usr/share/doc/fox/html/install.html
+  /usr/share/doc/fox/html/introduction.html
+  /usr/share/doc/fox/html/layout.html
+  /usr/share/doc/fox/html/license.html
+  /usr/share/doc/fox/html/menu.css
+  /usr/share/doc/fox/html/menu.html
+  /usr/share/doc/fox/html/messages.html
+  /usr/share/doc/fox/html/news.html
+  /usr/share/doc/fox/html/news1.html
+  /usr/share/doc/fox/html/news2.html
+  /usr/share/doc/fox/html/news3.html
+  /usr/share/doc/fox/html/page.css
+  /usr/share/doc/fox/html/pathfinder.html
+  /usr/share/doc/fox/html/projects.html
+  /usr/share/doc/fox/html/ref/*
+  /usr/share/doc/fox/html/screenshots/*
+  /usr/share/doc/fox/html/serialization.html
+  /usr/share/doc/fox/html/styles.css
+  /usr/share/doc/fox/html/timers.html
+  /usr/share/doc/fox/html/top.html
+  /usr/share/doc/fox/html/widgets.html
+  /usr/share/doc/fox/html/win32.html
+  /usr/share/doc/fox/html/window.html
+  /usr/share/doc/fox/html/xml.html
 
 ------------------
 
 Port Notes:
 
------ version 1.6.33-1 -----
-Version bump.
-Reorganized packages.
-
------ version 1.6.33-1 -----
-Version bump.
-Libs and apps are now built from one source package.
-
------ version 1.6.32-1 -----
-Version bump.
-
------ version 1.6.30-1 -----
-Version bump.
-
------ version 1.6.29-1 -----
-Version bump.
-
------ version 1.6.28-1 -----
-Version bump.
-
------ version 1.6.25-1 -----
-Version bump.
-
------ version 1.6.20-1 -----
-Version bump.
-
------ version 1.6.16-1 -----
-Version bump.
-
------ version 1.6.13-1 -----
-Version bump.
-
------ version 1.6.10-1 -----
-Version bump.
-
------ version 1.6.6-1 -----
-Version bump.
-
------ version 1.6.4-1 -----
-Version bump.
-FOX apps are now built separately with cygport-0.1.92.
-
------ version 1.6.3-1 -----
-Initial release of the 1.6 branch for Cygwin.
+----- version 1.6.36-1 -----
+Initial release of the 1.6 branch for Cygwin 1.7.
 
 
 Cygwin port maintained by:

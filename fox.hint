@@ -1,5 +1,5 @@
 category: Editors Graphics Math X11
-requires: libFOX1.6_0
+requires: libgcc1 libFOX1.6_0 libstdc++6
 sdesc: "FOX GUI Toolkit (apps)"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User
 Interfaces easily and effectively.  It offers a wide, and growing,

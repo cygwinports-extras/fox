@@ -12,28 +12,31 @@ DOCS="ADDITIONS LICENSE_ADDENDUM TRACING"
 FOX_APPS="adie calculator pathfinder shutterbug"
 
 DESCRIPTION="FOX C++ GUI Toolkit (${slot} branch)"
-PKG_NAMES="${PN} libFOX${slot}_0 libFOX${slot}-devel libFOX${slot}-doc reswrap"
-fox_CONTENTS="--exclude=reswrap* usr/bin/Adie.stx usr/bin/*.exe
-              usr/share/doc/Cygwin/ usr/share/doc/${P}/
-              usr/share/applications/ usr/share/man/ usr/share/pixmaps/"
+PKG_NAMES="${PN} libFOX${slot}_0 libFOX${slot}-devel libFOX${slot}-doc"
+fox_CONTENTS="--exclude=reswrap* --exclude=html usr/bin/Adie.stx usr/bin/*.exe
+              usr/share/applications/ usr/share/doc/ usr/share/man/ usr/share/pixmaps/"
 libFOX1_6_0_CONTENTS="usr/bin/*-${slot}-0.dll"
-libFOX1_6_devel_CONTENTS="usr/bin/fox-config-${slot} usr/include/ usr/lib/"
-libFOX1_6_doc_CONTENTS="usr/share/doc/fox-${slot}/"
-reswrap_CONTENTS="usr/bin/reswrap* usr/share/man/man1/reswrap.*"
+libFOX1_6_devel_CONTENTS="usr/bin/fox-config-${slot} usr/bin/reswrap.exe
+                          usr/include/ usr/lib/ usr/share/man/man1/reswrap.*"
+libFOX1_6_doc_CONTENTS="usr/share/doc/fox/html/"
+
+DISTCLEANFILES="doc/Doxyfile.in"
 
 src_compile() {
 	cd ${S}
 	WANT_AUTOCONF=2.5
-	WANT_AUTOMAKE=1.4
+	WANT_AUTOMAKE=1.9
 	cygautoreconf
 
 	cd ${B}
 
+	# --enable-release: enables -ffast-math, causes segfaults
+	CXXFLAGS+=" -DNDEBUG"
+	MATHLIB=" " \
 	cygconf \
 		--enable-bz2lib \
 		--enable-jpeg \
 		--enable-png \
-		--enable-release \
 		--enable-threads \
 		--enable-tiff \
 		--enable-zlib \
@@ -42,8 +45,7 @@ src_compile() {
 		--with-xcursor \
 		--with-xft \
 		--with-xrandr \
-		--with-xshm \
-		"${@}"
+		--with-xshm
 
 	cygmake
 	cygmake -C doc docs
@@ -52,13 +54,13 @@ src_compile() {
 src_install() {
 	cd ${B}
 	cyginstall \
-		htmldir=/usr/share/doc/fox-${slot}/html \
-		artdir=/usr/share/doc/fox-${slot}/html/art \
-		screenshotsdir=/usr/share/doc/fox-${slot}/html/screenshots
+		htmldir=/usr/share/doc/fox/html \
+		artdir=/usr/share/doc/fox/html/art \
+		screenshotsdir=/usr/share/doc/fox/html/screenshots
 
 	if [ -d ${B}/doc/ref ]
 	then
-		cp -Rp ${B}/doc/ref ${D}/usr/share/doc/fox-${slot}/html
+		cp -Rp ${B}/doc/ref ${D}/usr/share/doc/fox/html
 	fi
 
 	mv ${D}/usr/bin/fox-config{,-${slot}}
