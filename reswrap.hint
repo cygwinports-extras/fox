@@ -1,7 +1,7 @@
 category: X11
-requires: libFOX1.6_0 libbz2-devel libfreetype-devel libfontconfig-devel libGL-devel libGLU-devel libjpeg-devel libpng12-devel libstdc++6-devel libtiff-devel libX11-devel libXcursor-devel libXext-devel libXft-devellibXrandr-devel zlib-devel reswrap
+requires: libgcc1 libstdc++6
 external-source: fox
-sdesc: "FOX GUI Toolkit (1.6 development)"
+sdesc: "FOX GUI Toolkit (resource compiler)"
 ldesc: "FOX is a C++ based Toolkit for developing Graphical User 
 Interfaces easily and effectively.  It offers a wide, and growing, 
 collection of Controls, and provides state of the art facilities such 
