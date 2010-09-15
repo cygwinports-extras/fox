@@ -1,5 +1,5 @@
---- origsrc/fox-1.6.33/configure.in	2008-04-29 14:07:53.000000000 -0500
-+++ src/fox-1.6.33/configure.in	2008-05-02 09:49:03.781250000 -0500
+--- origsrc/fox-1.6.33/configure.ac	2008-04-29 14:07:53.000000000 -0500
++++ src/fox-1.6.33/configure.ac	2008-05-02 09:49:03.781250000 -0500
 @@ -409,6 +405,7 @@
  src/version.rc
  chart/Makefile

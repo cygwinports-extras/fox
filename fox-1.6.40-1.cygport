@@ -1,42 +1,39 @@
+DESCRIPTION="FOX C++ GUI Toolkit"
 HOMEPAGE="http://www.fox-toolkit.org/"
 SRC_URI="http://www.fox-toolkit.org/ftp/fox-${PV}.tar.gz"
-PATCH_URI="1.6-no-undefined.patch
-           1.6-doxygen-vpath.patch
-           1.6-x11.patch"
-
 SRC_DIR="fox-${PV}"
+
+PATCH_URI="
+	1.6-no-undefined.patch
+	1.6-doxygen-vpath.patch
+"
 
 slot=${PV[1]}.${PV[2]}
 
-DOCS="ADDITIONS LICENSE_ADDENDUM TRACING"
 FOX_APPS="adie calculator pathfinder shutterbug"
 
-DESCRIPTION="FOX C++ GUI Toolkit (${slot} branch)"
 PKG_NAMES="${PN} libFOX${slot}_0 libFOX${slot}-devel libFOX${slot}-doc reswrap"
 fox_CONTENTS="--exclude=reswrap* --exclude=html usr/bin/Adie.stx usr/bin/*.exe
               usr/share/applications/ usr/share/doc/ usr/share/man/ usr/share/pixmaps/"
 libFOX1_6_0_CONTENTS="usr/bin/*-${slot}-0.dll"
-libFOX1_6_devel_CONTENTS="usr/bin/fox-config-${slot} usr/include/ usr/lib/"
-libFOX1_6_doc_CONTENTS="usr/share/doc/fox/html/"
+libFOX1_6_devel_CONTENTS="usr/bin/fox-config* usr/include/ usr/lib/"
+libFOX1_6_doc_CONTENTS="usr/share/doc/fox-${slot}/html/"
 reswrap_CONTENTS="usr/bin/reswrap.exe usr/share/man/man1/reswrap.*"
 
 DISTCLEANFILES="doc/Doxyfile.in"
 
 src_compile() {
 	cd ${S}
-	WANT_AUTOCONF=2.5
-	WANT_AUTOMAKE=1.9
 	cygautoreconf
 
 	cd ${B}
 
-	# --enable-release: enables -ffast-math, causes segfaults
-	CXXFLAGS+=" -DNDEBUG"
 	MATHLIB=" " \
 	cygconf \
 		--enable-bz2lib \
 		--enable-jpeg \
 		--enable-png \
+		--enable-release \
 		--enable-threads \
 		--enable-tiff \
 		--enable-zlib \
@@ -53,14 +50,11 @@ src_compile() {
 
 src_install() {
 	cd ${B}
-	cyginstall \
-		htmldir=/usr/share/doc/fox/html \
-		artdir=/usr/share/doc/fox/html/art \
-		screenshotsdir=/usr/share/doc/fox/html/screenshots
+	cyginstall
 
 	if [ -d ${B}/doc/ref ]
 	then
-		cp -Rp ${B}/doc/ref ${D}/usr/share/doc/fox/html
+		cp -Rp ${B}/doc/ref ${D}/usr/share/doc/fox-${slot}/html
 	fi
 
 	mv ${D}/usr/bin/fox-config{,-${slot}}
@@ -80,3 +74,5 @@ src_install() {
 	doicon ${S}/shutterbug/shutterbug.gif
     make_desktop_entry shutterbug "ShutterBug" shutterbug.gif "Graphics"
 }
+
+DOCS="ADDITIONS LICENSE_ADDENDUM TRACING"
