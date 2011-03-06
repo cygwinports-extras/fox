@@ -6,6 +6,7 @@ SRC_DIR="fox-${PV}"
 PATCH_URI="
 	1.6-no-undefined.patch
 	1.6-doxygen-vpath.patch
+	1.6-pkgconfig.patch
 "
 
 slot=${PV[1]}.${PV[2]}
