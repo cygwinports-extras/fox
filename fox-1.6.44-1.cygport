@@ -1,6 +1,6 @@
 DESCRIPTION="FOX C++ GUI Toolkit"
 HOMEPAGE="http://www.fox-toolkit.org/"
-SRC_URI="http://www.fox-toolkit.org/ftp/fox-${PV}.tar.gz"
+SRC_URI="http://ftp.fox-toolkit.org/pub/fox-${PV}.tar.gz"
 SRC_DIR="fox-${PV}"
 
 PATCH_URI="

@@ -1,3 +1,14 @@
+--- origsrc/fox-1.6.44/configure.ac	2011-11-14 02:26:53.577544400 -0600
++++ src/fox-1.6.44/configure.ac	2011-11-14 02:38:30.308395100 -0600
+@@ -190,7 +190,7 @@ AC_ARG_WITH(xft,[  --with-xft
+ AC_MSG_RESULT([$with_xft])
+ if test "x$with_xft" != "xno"; then
+ XFTCFLAGS="-I/usr/include/freetype2"
+-XFTLIBS="-lfreetype -lXft"
++XFTLIBS="-lfontconfig -lfreetype -lXft"
+ saved_cppflags="${CXXFLAGS}"
+ CXXFLAGS="${CXXFLAGS} -DHAVE_XFT_H=1 $XFTCFLAGS"
+ X_BASE_LIBS="${X_BASE_LIBS} $XFTLIBS"
 --- origsrc/fox-1.6.33/chart/Makefile.am	2008-04-03 21:56:50.000000000 -0500
 +++ src/fox-1.6.33/chart/Makefile.am	2008-05-02 09:49:03.750000000 -0500
 @@ -8,10 +8,11 @@
