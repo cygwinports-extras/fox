@@ -7,6 +7,7 @@ PATCH_URI="
 	1.6-no-undefined.patch
 	1.6-doxygen-vpath.patch
 	1.6-pkgconfig.patch
+	1.6-cxxflags.patch
 "
 
 slot=${PV[1]}.${PV[2]}
@@ -77,3 +78,4 @@ src_install() {
 }
 
 DOCS="ADDITIONS LICENSE_ADDENDUM TRACING"
+KEEP_LA_FILES="none"
