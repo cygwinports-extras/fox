@@ -1,6 +1,6 @@
 NAME="fox"
 VERSION=1.6.50
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="FOX C++ GUI Toolkit"
 DESCRIPTION="FOX is a C++ based Toolkit for developing Graphical User Interfaces
