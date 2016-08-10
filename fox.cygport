@@ -1,6 +1,6 @@
 NAME="fox"
-VERSION=1.6.50
-RELEASE=2
+VERSION=1.6.51
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="FOX C++ GUI Toolkit"
 DESCRIPTION="FOX is a C++ based Toolkit for developing Graphical User Interfaces
@@ -12,7 +12,6 @@ tooltips."
 HOMEPAGE="http://www.fox-toolkit.org/"
 SRC_URI="http://ftp.fox-toolkit.org/pub/fox-${VERSION}.tar.gz"
 SRC_DIR="fox-${VERSION}"
-
 PATCH_URI="
 	1.6-no-undefined.patch
 	1.6-doxygen-vpath.patch

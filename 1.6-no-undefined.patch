@@ -11,12 +11,7 @@
  X_BASE_LIBS="${X_BASE_LIBS} $XFTLIBS"
 --- origsrc/fox-1.6.33/chart/Makefile.am	2008-04-03 21:56:50.000000000 -0500
 +++ src/fox-1.6.33/chart/Makefile.am	2008-05-02 09:49:03.750000000 -0500
-@@ -8,10 +8,11 @@
- 
- lib_LTLIBRARIES = libCHART-1.6.la
- 
--libCHART_1_6_la_LIBADD  = $(X_LIBS) $(X_BASE_LIBS) $(X_EXTRA_LIBS)
-+libCHART_1_6_la_LIBADD  = ../src/libFOX-1.6.la $(X_LIBS) $(X_BASE_LIBS) $(X_EXTRA_LIBS)
+@@ -12,6 +12,7 @@
  
  libCHART_1_6_la_LDFLAGS = \
          -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)    \

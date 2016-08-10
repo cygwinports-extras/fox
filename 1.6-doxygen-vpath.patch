@@ -1,215 +1,46 @@
---- origsrc/fox-1.6.33/configure.ac	2008-04-29 14:07:53.000000000 -0500
-+++ src/fox-1.6.33/configure.ac	2008-05-02 09:49:03.781250000 -0500
-@@ -409,6 +405,7 @@
- src/version.rc
- chart/Makefile
- doc/Makefile
-+doc/Doxyfile
- doc/art/Makefile
- doc/screenshots/Makefile
- tests/Makefile
---- origsrc/fox-1.6.33/doc/Doxyfile.in	1969-12-31 18:00:00.000000000 -0600
-+++ src/fox-1.6.33/doc/Doxyfile.in	2008-05-02 09:49:03.812500000 -0500
-@@ -0,0 +1,177 @@
-+PROJECT_NAME           = "FOX C++ GUI TOOLKIT Reference"
-+PROJECT_NUMBER         = 1.6
-+OUTPUT_DIRECTORY       =
-+CREATE_SUBDIRS         = NO
-+OUTPUT_LANGUAGE        = English
-+USE_WINDOWS_ENCODING   = NO
-+BRIEF_MEMBER_DESC      = NO
-+REPEAT_BRIEF           = YES
-+ABBREVIATE_BRIEF       =
-+ALWAYS_DETAILED_SEC    = YES
-+INLINE_INHERITED_MEMB  = NO
-+FULL_PATH_NAMES        = NO
-+STRIP_FROM_PATH        =
-+STRIP_FROM_INC_PATH    =
-+SHORT_NAMES            = NO
-+JAVADOC_AUTOBRIEF      = YES
-+MULTILINE_CPP_IS_BRIEF = NO
-+DETAILS_AT_TOP         = NO
-+INHERIT_DOCS           = YES
-+DISTRIBUTE_GROUP_DOC   = NO
-+TAB_SIZE               = 2
-+ALIASES                =
-+OPTIMIZE_OUTPUT_FOR_C  = NO
-+OPTIMIZE_OUTPUT_JAVA   = NO
-+SUBGROUPING            = YES
-+
-+EXTRACT_ALL            = YES
-+EXTRACT_PRIVATE        = NO
-+EXTRACT_STATIC         = YES
-+EXTRACT_LOCAL_CLASSES  = YES
-+EXTRACT_LOCAL_METHODS  = NO
-+HIDE_UNDOC_MEMBERS     = NO
-+HIDE_UNDOC_CLASSES     = NO
-+HIDE_FRIEND_COMPOUNDS  = NO
-+HIDE_IN_BODY_DOCS      = NO
-+INTERNAL_DOCS          = YES
-+CASE_SENSE_NAMES       = YES
-+HIDE_SCOPE_NAMES       = NO
-+SHOW_INCLUDE_FILES     = YES
-+INLINE_INFO            = YES
-+SORT_MEMBER_DOCS       = NO
-+SORT_BRIEF_DOCS        = NO
-+SORT_BY_SCOPE_NAME     = NO
-+GENERATE_TODOLIST      = YES
-+GENERATE_TESTLIST      = YES
-+GENERATE_BUGLIST       = YES
-+GENERATE_DEPRECATEDLIST= YES
-+ENABLED_SECTIONS       =
-+MAX_INITIALIZER_LINES  = 30
-+SHOW_USED_FILES        = NO
-+
-+QUIET                  = YES
-+WARNINGS               = YES
-+WARN_IF_UNDOCUMENTED   = YES
-+WARN_IF_DOC_ERROR      = YES
-+WARN_FORMAT            =
-+WARN_LOGFILE           =
-+
-+INPUT                  = @top_srcdir@/include
-+FILE_PATTERNS          = *.h
-+RECURSIVE              = NO
-+EXCLUDE                = @top_srcdir@/include/xincs.h \
-+                         @top_srcdir@/include/fxkeys.h \
-+                         @top_srcdir@/include/fx.h
-+EXCLUDE_SYMLINKS       = NO
-+EXCLUDE_PATTERNS       =
-+EXAMPLE_PATH           =
-+EXAMPLE_PATTERNS       =
-+EXAMPLE_RECURSIVE      = NO
-+IMAGE_PATH             =
-+INPUT_FILTER           = @srcdir@/filter.pl
-+FILTER_SOURCE_FILES    = NO
-+
-+SOURCE_BROWSER         = NO
-+INLINE_SOURCES         = NO
-+STRIP_CODE_COMMENTS    = NO
-+REFERENCED_BY_RELATION = YES
-+REFERENCES_RELATION    = YES
-+VERBATIM_HEADERS       = YES
-+
-+ALPHABETICAL_INDEX     = YES
-+COLS_IN_ALPHA_INDEX    = 5
-+IGNORE_PREFIX          = FX
-+
-+GENERATE_HTML          = YES
-+HTML_OUTPUT            = ./ref
-+HTML_FILE_EXTENSION    = .html
-+HTML_HEADER            = @srcdir@/header.html
-+HTML_FOOTER            = @srcdir@/footer.html
-+HTML_STYLESHEET        = @srcdir@/page.css
-+HTML_ALIGN_MEMBERS     = YES
-+GENERATE_HTMLHELP      = NO
-+CHM_FILE               =
-+HHC_LOCATION           =
-+GENERATE_CHI           = NO
-+BINARY_TOC             = NO
-+TOC_EXPAND             = NO
-+DISABLE_INDEX          = YES
-+ENUM_VALUES_PER_LINE   = 1
-+GENERATE_TREEVIEW      = NO
-+TREEVIEW_WIDTH         = 250
-+
-+GENERATE_LATEX         = NO
-+LATEX_OUTPUT           =
-+LATEX_CMD_NAME         = latex
-+MAKEINDEX_CMD_NAME     = makeindex
-+COMPACT_LATEX          = NO
-+PAPER_TYPE             = a4wide
-+EXTRA_PACKAGES         =
-+LATEX_HEADER           =
-+PDF_HYPERLINKS         = NO
-+USE_PDFLATEX           = NO
-+LATEX_BATCHMODE        = NO
-+LATEX_HIDE_INDICES     = NO
-+
-+GENERATE_RTF           = NO
-+RTF_OUTPUT             =
-+COMPACT_RTF            = NO
-+RTF_HYPERLINKS         = NO
-+RTF_STYLESHEET_FILE    =
-+RTF_EXTENSIONS_FILE    =
-+
-+GENERATE_MAN           = NO
-+MAN_OUTPUT             =
-+MAN_EXTENSION          =
-+MAN_LINKS              = NO
-+
-+GENERATE_XML           = NO
-+XML_OUTPUT             = xml
-+XML_SCHEMA             =
-+XML_DTD                =
-+XML_PROGRAMLISTING     = YES
-+
-+GENERATE_AUTOGEN_DEF   = NO
-+
-+GENERATE_PERLMOD       = NO
-+PERLMOD_LATEX          = NO
-+PERLMOD_PRETTY         = YES
-+PERLMOD_MAKEVAR_PREFIX =
-+
-+ENABLE_PREPROCESSING   = YES
-+MACRO_EXPANSION        = YES
-+EXPAND_ONLY_PREDEF     = YES
-+SEARCH_INCLUDES        = YES
-+INCLUDE_PATH           =
-+INCLUDE_FILE_PATTERNS  =
-+PREDEFINED             = FXAPI=
-+EXPAND_AS_DEFINED      =
-+SKIP_FUNCTION_MACROS   = YES
-+
-+TAGFILES               =
-+GENERATE_TAGFILE       =
-+ALLEXTERNALS           = NO
-+EXTERNAL_GROUPS        = YES
-+PERL_PATH              =
-+
-+CLASS_DIAGRAMS         = YES
-+HIDE_UNDOC_RELATIONS   = YES
-+HAVE_DOT               = YES
-+CLASS_GRAPH            = YES
-+COLLABORATION_GRAPH    = YES
-+UML_LOOK               = NO
-+TEMPLATE_RELATIONS     = YES
-+INCLUDE_GRAPH          = YES
-+INCLUDED_BY_GRAPH      = YES
-+CALL_GRAPH             = NO
-+GRAPHICAL_HIERARCHY    = YES
-+DOT_IMAGE_FORMAT       = png
-+DOT_PATH               =
-+DOTFILE_DIRS           =
-+MAX_DOT_GRAPH_WIDTH    = 1024
-+MAX_DOT_GRAPH_HEIGHT   = 1024
-+MAX_DOT_GRAPH_DEPTH    = 0
-+GENERATE_LEGEND        = YES
-+DOT_CLEANUP            = YES
-+
-+SEARCHENGINE           = NO
---- origsrc/fox-1.6.33/doc/Makefile.am	2005-11-09 06:56:45.000000000 -0600
-+++ src/fox-1.6.33/doc/Makefile.am	2008-05-02 09:49:03.828125000 -0500
-@@ -15,7 +15,6 @@
- datatarget.html \
- doc.html \
- download.html \
--doxygen.cfg \
- draganddrop.html \
- faq.html \
- filefuncs.html \
-@@ -61,12 +60,12 @@
+--- origsrc/fox-1.6.51/doc/Makefile.am	2014-05-13 23:32:40.000000000 -0500
++++ src/fox-1.6.51/doc/Makefile.am	2016-08-09 20:43:15.561885500 -0500
+@@ -60,6 +60,7 @@ xml.html
  
  
  docs:
--	doxygen doxygen.cfg
-+	doxygen
++	test -f doxygen.cfg || $(SED) -e "s|\.\./|$(top_srcdir)/|g" $(srcdir)/doxygen.cfg > doxygen.cfg
+ 	doxygen doxygen.cfg
  
  
- # Complete documentation package
- html_DATA = $(HTML_FILES)
+--- origsrc/fox-1.6.51/doc/doxygen.cfg	2014-05-13 23:32:40.000000000 -0500
++++ src/fox-1.6.51/doc/doxygen.cfg	2016-08-09 21:12:00.434699800 -0500
+@@ -485,7 +485,7 @@ IMAGE_PATH             =
+ # input file. Doxygen will then use the output that the filter program writes
+ # to standard output.
  
--EXTRA_DIST = $(html_DATA)
-+EXTRA_DIST = $(html_DATA) Doxyfile.in
+-INPUT_FILTER           = ./filter.pl
++INPUT_FILTER           = ../doc/filter.pl
  
+ # If the FILTER_SOURCE_FILES tag is set to YES, the input filter (if set using
+ # INPUT_FILTER) will be used to filter the input files when producing source
+@@ -581,13 +581,13 @@ HTML_FILE_EXTENSION    = .html
+ # each generated HTML page. If it is left blank doxygen will generate a
+ # standard header.
  
+-HTML_HEADER            = header.html
++HTML_HEADER            = ../doc/header.html
+ 
+ # The HTML_FOOTER tag can be used to specify a personal HTML footer for
+ # each generated HTML page. If it is left blank doxygen will generate a
+ # standard footer.
+ 
+-HTML_FOOTER            = footer.html
++HTML_FOOTER            = ../doc/footer.html
+ 
+ # The HTML_STYLESHEET tag can be used to specify a user-defined cascading
+ # style sheet that is used by each HTML page. It can be used to
+@@ -596,7 +596,7 @@ HTML_FOOTER            = footer.html
+ # the style sheet file to the HTML output directory, so don't put your own
+ # stylesheet in the HTML output directory as well, or it will be erased!
+ 
+-HTML_STYLESHEET        = page.css
++HTML_STYLESHEET        = ../doc/page.css
+ 
+ # If the HTML_ALIGN_MEMBERS tag is set to YES, the members of classes,
+ # files or namespaces will be aligned in HTML using tables. If set to
